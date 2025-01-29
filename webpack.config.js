@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
@@ -49,6 +50,7 @@ module.exports = {
       "buffer": require.resolve("buffer/"),
       "stream": require.resolve("stream-browserify"),
       "util": require.resolve("util/"),
+      "process": require.resolve("process/browser"),  // process をブラウザ用に
     },
   },
   plugins: [
@@ -56,8 +58,11 @@ module.exports = {
       template: "./public/index.html",
       filename: "index.html",
     }),
+    new webpack.ProvidePlugin({
+      process: "process/browser",
+    }),
     new webpack.DefinePlugin({
-      'process.env': JSON.stringify(process.env)
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || "development"), // NODE_ENV を明示
     }),
   ],
 };
