@@ -50,7 +50,7 @@ module.exports = {
       "buffer": require.resolve("buffer/"),
       "stream": require.resolve("stream-browserify"),
       "util": require.resolve("util/"),
-      "process": require.resolve("process/browser"),  // process をブラウザ用に
+      "process": require.resolve("process/browser")
     },
   },
   plugins: [
