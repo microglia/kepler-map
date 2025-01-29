@@ -43,7 +43,7 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx"],
     fallback: {
-      "url": require.resolve("url"), // 修正
+      "url": require.resolve("url"),
       "querystring": require.resolve("querystring-es3"),
       "assert": require.resolve("assert/"),
       "buffer": require.resolve("buffer/"),
